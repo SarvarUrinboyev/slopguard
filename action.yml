@@ -1,0 +1,22 @@
+name: 'slopguard'
+description: 'Guard your repo against AI slop: secret leaks (S1) and missing license / SPDX headers (S5).'
+author: 'Sarvar Urinboyev'
+branding:
+  icon: 'shield'
+  color: 'red'
+inputs:
+  path:
+    description: 'Root directory to scan.'
+    required: false
+    default: '.'
+  src-dir:
+    description: 'Directory checked for SPDX-License-Identifier headers (S5).'
+    required: false
+    default: 'src'
+  fail-on:
+    description: 'Severity that fails the check: error | warning | never.'
+    required: false
+    default: 'error'
+runs:
+  using: 'node20'
+  main: 'src/action.js'
